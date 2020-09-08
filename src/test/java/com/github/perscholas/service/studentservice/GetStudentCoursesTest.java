@@ -3,8 +3,17 @@ package com.github.perscholas.service.studentservice;
 import com.github.perscholas.JdbcConfigurator;
 import com.github.perscholas.utils.DirectoryReference;
 import org.junit.Before;
-
 import java.io.File;
+import com.github.perscholas.dao.CourseDao;
+import com.github.perscholas.dao.StudentDao;
+import com.github.perscholas.model.Course;
+import com.github.perscholas.model.CourseInterface;
+import com.github.perscholas.model.StudentInterface;
+import com.github.perscholas.service.CourseService;
+import com.github.perscholas.service.StudentService;
+import org.junit.Test;
+import org.junit.Assert;
+import java.util.*;
 
 /**
  * @author leonhunter
@@ -27,15 +36,16 @@ public class GetStudentCoursesTest {
     }
 
     // given
-    // TODO - Add `@Test` annotation
+    @Test
     public void test() {
         JdbcConfigurator.initialize();
+        StudentDao studentService = new StudentService();
 
         // when
-        // TODO - define `when` clause
-
+        List<CourseInterface> courses = studentService.getStudentCourses("deepti.c@gmail.com");
 
         // then
-        // TODO - define `then` clause
+        Assert.assertEquals(courses.get(0).getName(),"English");
+        Assert.assertEquals(courses.get(1).getName(),"Mathematics");
     }
 }

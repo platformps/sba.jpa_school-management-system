@@ -1,0 +1,2 @@
+INSERT INTO management_system.Student_Course (student_email, course_id) values ('deepti.c@gmail.com', 1);
+INSERT INTO management_system.Student_Course (student_email, course_id) values ('deepti.c@gmail.com', 2);

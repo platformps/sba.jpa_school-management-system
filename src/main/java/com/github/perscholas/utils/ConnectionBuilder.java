@@ -73,10 +73,11 @@ public class ConnectionBuilder {
                 .append("://")
                 .append(isHostNull ? "localhost" : "")
                 .append(!isHostNull ? this.hostName : "")
-                .append(hasPortBeenSet ? ":" : "")
-                .append(hasPortBeenSet ? portNumber : "")
+                .append(!hasPortBeenSet ? ":" : "")
+                .append(!hasPortBeenSet ? portNumber : "")
                 .append("/")
                 .append(databaseName != null ? databaseName : "")
+                .append("?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC")
                 .toString();
         return jdbcUrl;
     }
