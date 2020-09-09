@@ -6,6 +6,10 @@ import com.github.perscholas.model.CourseInterface;
 import com.github.perscholas.model.Student;
 import com.github.perscholas.model.StudentInterface;
 
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+import javax.persistence.Query;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -25,9 +29,17 @@ public class StudentService implements StudentDao {
 
     @Override
     public List<StudentInterface> getAllStudents() {
-        ResultSet resultSet = dbc.executeQuery("SELECT * FROM students");
+        ResultSet resultSet = dbc.executeQuery("SELECT * FROM Student");
+        List<StudentInterface> students = new ArrayList<>();
         try {
-            return null; // TODO - Parse `List<StudentInterface>` from `resultSet`
+            while(resultSet.next()){
+                Student student = new Student();
+                student.setEmail(resultSet.getString("email"));
+                student.setName(resultSet.getString("name"));
+                student.setPassword(resultSet.getString("password"));
+                students.add(student);
+            }
+            return students; // TODO - Parse `List<StudentInterface>` from `resultSet`
         } catch(Exception e) {
             throw new Error(e);
         }
@@ -35,12 +47,23 @@ public class StudentService implements StudentDao {
 
     @Override
     public StudentInterface getStudentByEmail(String studentEmail) {
-        return null;
+        ResultSet resultSet = dbc.executeQuery("SELECT * FROM Student WHERE email = " + studentEmail);
+        Student student = new Student();
+        try{
+            while(resultSet.next()){
+                student.setEmail(resultSet.getString("email"));
+                student.setName(resultSet.getString("name"));
+                student.setPassword(resultSet.getString("password"));
+            }
+            return student;
+        } catch (Exception e){
+            throw new Error(e);
+        }
     }
 
     @Override
     public Boolean validateStudent(String studentEmail, String password) {
-        return null;
+        return getStudentByEmail(studentEmail).getPassword().equals(password);
     }
 
     @Override

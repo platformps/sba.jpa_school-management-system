@@ -2,9 +2,12 @@ package com.github.perscholas;
 
 import com.github.perscholas.dao.StudentDao;
 import com.github.perscholas.model.CourseInterface;
+import com.github.perscholas.service.StudentService;
 import com.github.perscholas.utils.IOConsole;
 
 import java.util.List;
+
+import static com.github.perscholas.DatabaseConnection.MANAGEMENT_SYSTEM;
 
 public class SchoolManagementSystem implements Runnable {
     private static final IOConsole console = new IOConsole();
@@ -15,7 +18,7 @@ public class SchoolManagementSystem implements Runnable {
         do {
             smsDashboardInput = getSchoolManagementSystemDashboardInput();
             if ("login".equals(smsDashboardInput)) {
-                StudentDao studentService = null; // TODO - Instantiate `StudentDao` child
+                StudentDao studentService = new StudentService(MANAGEMENT_SYSTEM); // TODO - Instantiate `StudentDao` child
                 String studentEmail = console.getStringInput("Enter your email:");
                 String studentPassword = console.getStringInput("Enter your password:");
                 Boolean isValidLogin = studentService.validateStudent(studentEmail, studentPassword);

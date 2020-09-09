@@ -9,16 +9,16 @@ http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
         <properties>
             <!-- Configuring The Database Connection Details -->
             <property name="javax.persistence.jdbc.driver"
-                      value="mysql"/>
+                      value="org.mariadb.jdbc.Driver"/>
 
             <property name="javax.persistence.jdbc.url"
-                      value="jdbc:mysql://127.0.0.1/"/>
+                      value="jdbc:mariadb://127.0.0.1/"/>
 
             <property name="javax.persistence.jdbc.user"
-                      value=""/>
+                      value="root"/>
 
             <property name="javax.persistence.jdbc.password"
-                      value=""/>
+                      value="admin"/>
 
             <property name="eclipselink.logging.level"
                       value="OFF"/>
