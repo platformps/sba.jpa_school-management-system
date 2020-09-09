@@ -6,6 +6,7 @@ import com.github.perscholas.model.StudentInterface;
 import com.github.perscholas.service.StudentService;
 import com.github.perscholas.utils.DirectoryReference;
 import org.junit.Before;
+import org.junit.Test;
 
 import java.io.File;
 import java.util.List;
@@ -32,6 +33,7 @@ public class GetAllStudentsTest {
 
     // given
     // TODO - Add `@Test` annotation
+    @Test
     public void test() {
         JdbcConfigurator.initialize();
         StudentDao service = (StudentDao) new StudentService();

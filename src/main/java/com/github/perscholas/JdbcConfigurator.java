@@ -2,19 +2,21 @@ package com.github.perscholas;
 
 import com.github.perscholas.utils.DirectoryReference;
 import com.github.perscholas.utils.FileReader;
+import com.mysql.cj.jdbc.Driver;
 
 import java.io.File;
+import java.sql.DriverManager;
 
 public class JdbcConfigurator {
     static {
         try {
-            // TODO - Attempt to register JDBC Driver
+            DriverManager.registerDriver(Driver.class.newInstance());// TODO - Attempt to register JDBC Driver
         } catch (Exception e) {
             throw new Error(e);
         }
     }
 
-    private static final DatabaseConnection dbc = DatabaseConnection.MANAGEMENT_SYSTEM;
+    private static final DatabaseConnection dbc = DatabaseConnection.school_sba;
 
     public static void initialize() {
         dbc.drop();

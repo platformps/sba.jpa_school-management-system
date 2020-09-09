@@ -15,10 +15,10 @@ http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
                       value="jdbc:mysql://127.0.0.1/"/>
 
             <property name="javax.persistence.jdbc.user"
-                      value=""/>
+                      value="root"/>
 
             <property name="javax.persistence.jdbc.password"
-                      value=""/>
+                      value="root"/>
 
             <property name="eclipselink.logging.level"
                       value="OFF"/>

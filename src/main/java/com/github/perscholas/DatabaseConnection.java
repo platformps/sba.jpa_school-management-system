@@ -2,15 +2,15 @@ package com.github.perscholas;
 
 import com.github.perscholas.utils.ConnectionBuilder;
 import com.github.perscholas.utils.IOConsole;
-
 import java.sql.Connection;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 
 /**
  * Created by leon on 2/18/2020.
  */
 public enum DatabaseConnection implements DatabaseConnectionInterface {
-    MANAGEMENT_SYSTEM,
+    school_sba,
     UAT;
 
     private static final IOConsole console = new IOConsole(IOConsole.AnsiColor.CYAN);
@@ -23,8 +23,8 @@ public enum DatabaseConnection implements DatabaseConnectionInterface {
     DatabaseConnection() {
         this(new ConnectionBuilder()
                 .setUser("root")
-                .setPassword("")
-                .setPort(3306)
+                .setPassword("root")
+                .setPort(3300)
                 .setDatabaseVendor("mariadb")
                 .setHost("127.0.0.1"));
     }
@@ -48,7 +48,7 @@ public enum DatabaseConnection implements DatabaseConnectionInterface {
 
     @Override
     public void create() {
-        String sqlStatement = null; // TODO - define statement
+        String sqlStatement = ("CREATE DATABASE" + name()); // TODO - define statement
         String info;
         try {
             // TODO - execute statement
@@ -61,14 +61,17 @@ public enum DatabaseConnection implements DatabaseConnectionInterface {
 
     @Override
     public void drop() {
+
     }
 
     @Override
     public void use() {
+
     }
 
     @Override
     public void executeStatement(String sqlStatement) {
+
     }
 
     @Override

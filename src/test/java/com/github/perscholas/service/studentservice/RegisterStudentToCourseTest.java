@@ -3,6 +3,7 @@ package com.github.perscholas.service.studentservice;
 import com.github.perscholas.JdbcConfigurator;
 import com.github.perscholas.utils.DirectoryReference;
 import org.junit.Before;
+import org.junit.Test;
 
 import java.io.File;
 
@@ -28,6 +29,7 @@ public class RegisterStudentToCourseTest {
 
     // given
     // TODO - Add `@Test` annotation
+    @Test
     public void test() {
         JdbcConfigurator.initialize();
 

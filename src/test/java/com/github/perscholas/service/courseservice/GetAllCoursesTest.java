@@ -3,6 +3,7 @@ package com.github.perscholas.service.courseservice;
 import com.github.perscholas.JdbcConfigurator;
 import com.github.perscholas.utils.DirectoryReference;
 import org.junit.Before;
+import org.junit.Test;
 
 import java.io.File;
 
@@ -27,6 +28,7 @@ public class GetAllCoursesTest {
     }
 
     // given
+    @Test
     private void test() {
         JdbcConfigurator.initialize();
 
